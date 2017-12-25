@@ -1,5 +1,6 @@
 #include <iostream>
-#include "IO.hpp"
+#include "../lib/args/args.hxx"
+
 
 void help()
 {
@@ -11,6 +12,24 @@ void help()
 
 int main(int argc, char **argv)
 {
-    std::cout << "Hello World" << std::endl;
+    args::ArgumentParser parser("Short text #1", "This goes after the options");
+    args::HelpFlag help(parser, "help", "Displays this help menu", {'h', "help"});
+
+    try
+    {
+        
+    }
+    catch (args::Help h)
+    {
+        std::cout << parser;
+        return 0;
+    }
+    catch(args::ParseError e)
+    {
+        std::cerr << e.what() << std::endl;
+        std::cerr << parser;
+        return 1;
+    }
+
     return 0;
 }

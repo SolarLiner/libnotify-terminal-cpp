@@ -2,15 +2,13 @@
 #define IO_H
 #include <string>
 #include <iostream>
+#include "../lib/args/args.hxx"
 
 class IO
 {
 public:
-    IO();
-    ~IO();
-    template<class T> bool read(const std::string info, T& output);
-    template<class T> bool write(T& input);
-    bool parse_args(int argc, std::string* argv);
+    template<class T> static bool read(const std::string info, T& output);
+    template<class T> static bool write(T& input);
 };
 
 #endif
