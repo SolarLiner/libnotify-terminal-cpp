@@ -3,8 +3,8 @@ FLAGS=`pkg-config --cflags --libs libnotify`
 
 make: libnotify-terminal
 
-libnotify-terminal: *.cc
-	-mkdir build
+libnotify-terminal: src/*.cpp
+	mkdir -p build
 	clang++ $^ $(FLAGS) -o build/$@
 
 clean:
