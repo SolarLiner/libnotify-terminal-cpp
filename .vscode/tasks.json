@@ -7,6 +7,9 @@
             "label": "echo",
             "type": "process",
             "command": "make",
+            "args": [
+                "debug"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
