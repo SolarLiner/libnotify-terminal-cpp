@@ -16,8 +16,8 @@ int main(int argc, const char** argv)
     args::ValueFlag<std::string> icon(content, "icon", "freedesktop icon name", {"icon"}, args::Options::Single);
 
     args::Group config(parser, "Configuration options", args::Group::Validators::DontCare);
-    args::ValueFlag<std::string> appname(config, "Application name", {"appname"}, args::Options::Required);
-    args::ValueFlag<int> timeout(config, "Notification timeout. Only applies to DEs that support it.", {"timeout"}, args::Options::);
+    args::ValueFlag<std::string> appname(config, "appname", "Application name", {"appname"}, args::Options::Required);
+    args::ValueFlag<int> timeout(config, "timeout", "Notification timeout. Only applies to DEs that support it.", {"timeout"});
 
     args::Group buttons(parser, "Add buttons to the notification (if the desktop environment supports it)", args::Group::Validators::DontCare);
     args::ValueFlag<std::string> button(buttons, "button", "Adds a button by its action callback and user label", {"button"});
