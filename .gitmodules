@@ -1,0 +1,6 @@
+[submodule "lib/args"]
+	path = lib/args
+	url = https://github.com/Taywee/args
+[submodule "lib/test"]
+	path = lib/test
+	url = https://github.com/catchorg/Catch2
