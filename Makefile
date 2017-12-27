@@ -1,16 +1,21 @@
 CXX=clang++
 LIBS=libnotify
-FLAGS=-std=c++11
+FLAGS=-std=c++11 -O3
+SOURCES:=$(wildcard src/*.cpp)
+OBJS:=$(patsubst src/%.cpp,%.bc,$(SOURCES))
 
 make: libnotify-terminal
 
-debug: src/*.cpp
-	mkdir -p build/debug
-	clang++ $^ $(FLAGS) -g `pkg-config --cflags --libs $(LIBS)` -o build/debug/libnotify-terminal
+debug: FLAGS+=-g
+debug: libnotify-terminal
 
-libnotify-terminal: src/*.cpp
+%.bc: src/%.cpp
+	clang++ -emit-llvm -o $@ -c $^ $(FLAGS) `pkg-config --cflags $(LIBS)`
+
+libnotify-terminal: $(OBJS)
 	mkdir -p build
-	clang++ $^ $(FLAGS) `pkg-config --cflags --libs $(LIBS)` -o build/$@
+	clang++ $^ -o build/$@ `pkg-config --libs $(LIBS)`
 
 clean:
-	rm -rf build
+	-rm *.bc
+	-rm -rf build
