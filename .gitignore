@@ -34,3 +34,4 @@
 # Output build folder
 dist/
 build/
+*.bc
