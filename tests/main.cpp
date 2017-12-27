@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include "../lib/test/catch.hpp"
+#include "../lib/catch.hpp"
 #include "../src/Notification.hpp"
 
 TEST_CASE("a Notification object is being created", "[Notification]") {
