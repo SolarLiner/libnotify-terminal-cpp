@@ -1,6 +1,7 @@
 dist: trusty
 sudo: required
 compiler: clang
+language: cpp
 
 install: sudo apt install -q lcov libnotify-dev
 script: make && make tests
