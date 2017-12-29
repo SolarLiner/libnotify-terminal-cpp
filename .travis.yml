@@ -1,0 +1,6 @@
+dist: trusty
+sudo: required
+compiler: clang
+
+install: apt install -q lcov
+script: make && make tests
