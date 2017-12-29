@@ -25,8 +25,6 @@ tests: $(filter-out src/main.cpp,$(SOURCES) $(wildcard tests/*.cpp))
 	-@rm -rf ./tests/coverage
 	@echo "Runing tests"
 	-@./$@.out
-	-@mkdir ./tests/coverage
-	-@mv *.gc[dn][oa] ./tests/coverage
 
 clean:
 	-rm *.bc *.gc[nd][oa]
