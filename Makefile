@@ -27,9 +27,9 @@ tests: $(filter-out src/main.cpp,$(SOURCES) $(wildcard tests/*.cpp))
 	-@./$@.out
 
 package: build
-	-mkdir dist
-	cp build/libnotify-terminal dist
-	cd dist && tar -zcvf ../libnotify-terminal.tar.gz ./* 
+	-mkdir -p dist/libnotify-terminal
+	cp build/libnotify-terminal dist/libnotify-terminal
+	tar -zcvf libnotify-terminal.tar.gz -C dist libnotify-terminal
 
 clean:
 	-rm *.bc *.gc[nd][oa] *.tar.gz
