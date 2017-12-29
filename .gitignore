@@ -31,7 +31,12 @@
 *.out
 *.app
 
-# Output build folder
+# Coverage generated files
+*.gc[nd][ao]
+cov.info
+
+# Output builds
 dist/
 build/
 *.bc
+libnotify-terminal.tar.gz
