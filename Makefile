@@ -4,7 +4,7 @@ FLAGS=-std=c++11 -O3
 SOURCES:=$(wildcard src/*.cpp)
 OBJS:=$(patsubst src/%.cpp,%.bc,$(SOURCES))
 
-.PHONY: make debug tests clean
+.PHONY: make debug tests package clean
 
 make: libnotify-terminal
 
@@ -26,7 +26,12 @@ tests: $(filter-out src/main.cpp,$(SOURCES) $(wildcard tests/*.cpp))
 	@echo "Runing tests"
 	-@./$@.out
 
+package: build
+	-mkdir -p dist/libnotify-terminal
+	cp build/libnotify-terminal dist/libnotify-terminal
+	tar -zcvf libnotify-terminal.tar.gz -C dist libnotify-terminal
+
 clean:
-	-rm *.bc *.gc[nd][oa]
-	-rm -rf build
+	-rm *.bc *.gc[nd][oa] *.tar.gz
+	-rm -rf build dist
 	-rm tests.out

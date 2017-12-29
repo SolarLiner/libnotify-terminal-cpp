@@ -39,3 +39,4 @@ cov.info
 dist/
 build/
 *.bc
+libnotify-terminal.tar.gz
