@@ -3,5 +3,10 @@ sudo: required
 compiler: clang
 language: cpp
 
+before_install: openssl aes-256-cbc -K $encrypted_4fd77df3b478_key -iv $encrypted_4fd77df3b478_iv -in gh_deploy.enc -out gh_deploy -d
 install: sudo apt install -q lcov libnotify-dev
 script: make && make tests
+after_success: make package
+deploy:
+        provider: releases
+        api_key:
