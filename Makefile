@@ -27,9 +27,11 @@ tests: $(filter-out src/main.cpp,$(SOURCES) $(wildcard tests/*.cpp))
 	@echo "Runing tests"
 	-@./$@.out
 
-package: build
-	-mkdir -p $(DESTDIR)libnotify-terminal
-	cp build/libnotify-terminal $(DESTDIR)libnotify-terminal
+install: build
+	-mkdir -p $(DESTDIR)bin
+	cp build/libnotify-terminal $(DESTDIR)bin/
+
+package: install
 	tar -zcvf libnotify-terminal.tar.gz -C $(DESTDIR) libnotify-terminal
 
 clean:
