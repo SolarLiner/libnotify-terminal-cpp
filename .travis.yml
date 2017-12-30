@@ -33,7 +33,7 @@ after_success:
          "  IdentityFile $SSH_FILE" \
          "  LogLevel ERROR" >> ~/.ssh/config
 
-- make package
+- make DESTDIR="release/" package
 
 deploy:
   provider: releases

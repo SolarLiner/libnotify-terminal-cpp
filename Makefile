@@ -32,7 +32,7 @@ install: build
 	cp build/libnotify-terminal $(DESTDIR)bin/
 
 package: install
-	tar -zcvf libnotify-terminal.tar.gz -C $(DESTDIR) libnotify-terminal
+	tar -zcvf libnotify-terminal.tar.gz $(DESTDIR)
 
 clean:
 	-rm *.bc *.gc[nd][oa] *.tar.gz
