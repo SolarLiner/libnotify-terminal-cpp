@@ -7,6 +7,7 @@ CLI that sends notifications with buttons and callbacks.
 
 ## Usage
 Warning: Usage is not engraved in stone yet. Expect changes, especially in the beginning.
+
 `libnotify-terminal BODY {options}`  
 Note: Only the body is required.
 
