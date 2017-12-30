@@ -26,6 +26,7 @@ tests: $(filter-out src/main.cpp,$(SOURCES) $(wildcard tests/*.cpp))
 	@echo "Runing tests"
 	-@./$@.out
 
+package: DESTDIR?=dist
 package: build
 	-mkdir -p dist/libnotify-terminal
 	cp build/libnotify-terminal dist/libnotify-terminal
